@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+	<head th:replace="layout/layout :: head"></head>
+
+	<body>
+		<header th:replace="layout/layout :: header"></header>
+
+		<main class="contenedor-login">
+			<div class="tarjeta">
+				<div class="tarjeta-header">
+					<h2>Iniciar Sesion</h2>
+				</div>
+
+				<div class="tarjeta-body">
+					<form th:action="@{/login}" method="post">
+						<div class="campo">
+							<input
+								type="text"
+								name="username"
+								id="username"
+								class="campo-field"
+								placeholder="UserName"
+								required
+								autofocus
+							/>
+						</div>
+
+						<div class="campo">
+							<input
+								type="password"
+								name="password"
+								id="password"
+								class="campo-field"
+								placeholder="Password"
+								required
+							/>
+						</div>
+
+						<div class="centrar-btn">
+							<input type="submit" class="boton boton-enviar cont-center" value="Iniciar Sesion" />
+						</div>
+					</form>
+				</div>
+			</div>
+		</main>
+
+		<footer th:replace="layout/layout :: footer"></footer>
+	</body>
+</html>

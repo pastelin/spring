@@ -1,0 +1,17 @@
+@use 'base/variables' as v;
+
+.campo {
+    margin-bottom: 2rem;
+    input {
+        height: 4rem;
+        font-size: 2rem;
+        color: v.$negroClaro;
+        width: 100%;
+        border-radius: .5rem;
+        border: 2px solid v.$gris;
+        &:focus {
+            border: 2px solid v.$negroClaro;
+            outline: none;
+        }
+    }
+}

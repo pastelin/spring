@@ -1,0 +1,176 @@
+:root {
+	--secundario: #ff4c4c;
+	--secundarioOscuro: #cf4242;
+	--primario: #0099e5;
+	--primarioOscuro: #0272aa;
+	--blanco: #fff;
+	--negro: #000;
+	--darkBody: #212529;
+	--darkHeader: #202428;
+	--verde: #34bf49;
+	--verdeOscuro: #268835;
+	--gris: #e1e1e1;
+
+	--fuenteHeading: 'PT Sans', sans-serif;
+	--fuenteParrafos: 'Open Sans', sans-serif;
+}
+
+html {
+	box-sizing: border-box;
+	font-size: 62.5%;
+}
+
+*,
+*:before,
+*:after {
+	box-sizing: inherit;
+}
+
+body {
+	font-family: var(--fuenteParrafos);
+	font-size: 1.6rem;
+	line-height: 2;
+}
+
+p {
+	font-size: 1.8rem;
+}
+
+h1 {
+	font-size: 4rem;;
+}
+
+h5 {
+	font-size: 2rem;
+}
+
+.nav__titulo,
+.navbar__titulo {
+	font-size: 2rem;
+}
+
+input {
+	border: none;
+}
+
+tr {
+	text-align: center;
+}
+
+a {
+	text-decoration: none;
+	font-size: 1.6rem;
+}
+
+img {
+	width: 100%;
+}
+
+.card-body {
+	padding: 3rem;
+}
+
+/** BTN Cliente **/
+.boton {
+	display: inline-block;
+	color: var(--blanco);
+	padding: .3rem 2rem;
+	border-radius: .5rem;
+	font-size: 1.4rem;
+}
+
+.boton--primario {
+	background-color: var(--primario);
+}
+
+.boton--secundario {
+	background-color: var(--secundario);
+}
+
+.boton--primario:hover {
+	color: var(--blanco);
+	background-color: var(--primarioOscuro);
+}
+
+.boton--secundario:hover {
+	color: var(--blanco);
+	background-color: var(--secundarioOscuro);
+}
+
+.boton--verde {
+	background-color: var(--verde);
+}
+
+.boton--verde:hover {
+	color: var(--blanco);
+	background-color: var(--verdeOscuro);
+}
+
+/** Estilos para ver detalle **/
+.contenedor {
+	max-width: 120rem;
+	width: 95%;
+	margin: 2rem auto;
+
+}
+
+.detalle {
+	background-color: var(--darkBody);
+	column-gap: 2rem;
+	display: grid;
+	grid-template-columns: 1fr 3fr;
+	padding: 2rem;
+}
+
+.titulo {
+	background-color: var(--darkHeader);
+	color: var(--blanco);
+	padding: 1rem;
+	text-align: center;
+}
+
+.detalle__informacion {
+	color: var(--blanco);
+	list-style: none;
+}
+
+footer {
+	margin-top: 5rem;
+}
+
+.imagen__footer {
+	width: 35rem;
+}
+
+.contenedor__footer {
+	display: flex;
+	justify-content: center;
+	gap: 5rem;
+	align-items: center;
+}
+
+/* Factura Form */
+.formulario {
+	background-color: var(--blanco);
+	padding: 4rem;
+}
+
+.campo {
+	display: flex;
+	margin-bottom: 2rem;
+	gap: 2rem;
+}
+
+.campo__label {
+	flex: 0 0 15rem;
+	text-align: right;
+}
+
+.campo__field {
+	flex: 1;
+	border: 1px solid var(--gris);
+}
+
+.campo__field--textarea {
+	height: 10rem;
+}

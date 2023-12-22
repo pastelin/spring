@@ -1,0 +1,21 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.tarjeta {
+    background-color: v.$blanco;
+    padding: 4rem 2rem;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.35);
+    .tarjeta-header {
+        h1, h2 {
+            text-align: center;
+            color: v.$negroClaro;
+        }
+    }
+}
+
+.botonera {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}

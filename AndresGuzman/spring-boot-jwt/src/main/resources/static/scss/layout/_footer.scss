@@ -1,0 +1,29 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.site-footer { 
+    margin-top: 20rem;
+    background-color: v.$negro;
+    padding: 1rem;
+    text-align: center;
+    
+    @include m.tablet {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        justify-items: center;
+    }
+
+    .imagen {
+        width: 15rem;
+        margin: .5rem auto;
+        @include m.tablet {
+            margin: 0;
+        }   
+    }
+
+    p {
+        color: v.$blanco;
+    }
+
+}

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html
+	lang="en"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+>
+	<head th:fragment="head">
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title th:text=" 'Spring Boot: MVC + Thymeleaf + Data JPA - ' + ${titulo}"></title>
+		<link rel="stylesheet" th:href="@{/css/jquery-ui.min.css}" />
+		<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700;900&display=swap"
+			rel="stylesheet"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css"
+		/>
+		<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+		<link rel="stylesheet" th:href="@{/css/app.css}" />
+	</head>
+	<body>
+		<header th:fragment="header">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col">
+						<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+							<div class="container-fluid">
+								<a class="navbar-brand" href="#">Spring Boot</a>
+								<button
+									class="navbar-toggler"
+									type="button"
+									data-bs-toggle="collapse"
+									data-bs-target="#navbarNavAltMarkup"
+									aria-controls="navbarNavAltMarkup"
+									aria-expanded="false"
+									aria-label="Toggle navigation"
+								>
+									<span class="navbar-toggler-icon"></span>
+								</button>
+								<div
+									class="collapse navbar-collapse justify-content-between"
+									id="navbarNavAltMarkup"
+								>
+									<div class="navbar-nav">
+										<a class="nav-link" th:href="@{/listar}">Clientes </a>
+									</div>
+									<div class="navbar-nav">
+										<a class="nav-link" th:href="@{/locale(lang=es_MX)}">ES</a>
+										<a class="nav-link" th:href="@{/locale(lang=en_US)}">US</a>
+										<a class="nav-link" th:href="@{/locale(lang=de_DE)}">DE</a>
+										<a
+											sec:authorize="!isAuthenticated()"
+											class="nav-link"
+											th:href="@{/login}"
+										>
+											Sign In
+										</a>
+										<div
+											class="nav-item dropdown"
+											sec:authorize="isAuthenticated()"
+										>
+											<a
+												class="nav-link dropdown-toggle"
+												href="#"
+												id="navbarDropdownMenuLink"
+												role="button"
+												data-bs-toggle="dropdown"
+												aria-expanded="false"
+												sec:authentication="name"
+											>
+											</a>
+											<form
+												class="dropdown-menu"
+												aria-labelledby="navbarDropdownMenuLink"
+												id="logoutForm"
+												method="post"
+												th:action="@{/logout}"
+											>
+												<button
+													class="dropdown-item"
+													onclick="document.getElementById('logoutForm').submit();"
+													type="submit"
+												>
+													Sign Out
+												</button>
+											</form>
+										</div>
+									</div>
+								</div>
+							</div>
+						</nav>
+					</div>
+				</div>
+
+				<nav class="navegacion-principal"></nav>
+			</div>
+			<div>
+				<div
+					class="alert alert-success"
+					th:if="${success != null}"
+					th:text="${success}"
+				></div>
+				<div class="alert alert-danger" th:if="${error != null}" th:text="${error}"></div>
+				<div
+					class="alert alert-warning"
+					th:if="${warning != null}"
+					th:text="${warning}"
+				></div>
+				<div class="alert alert-info" th:if="${info != null}" th:text="${info}"></div>
+			</div>
+		</header>
+
+		<footer th:fragment="footer" class="site-footer">
+			<div class="imagen">
+				<img th:src="@{/images/spring.png}" alt="Spring logo" />
+			</div>
+
+			<div class="contenido-footer">
+				<p sec:authorize="isAuthenticated()">
+					Usuario logueado: <span sec:authentication="name"></span> | Roles:
+					<span sec:authentication="principal.authorities"></span>
+				</p>
+
+				<p>Powered by <a href="https://spring.io/projects/spring-data">Spring Data</a></p>
+			</div>
+		</footer>
+
+		<script th:src="@{/js/jquery-3.6.0.min.js}"></script>
+		<script th:src="@{/js/jquery-ui.min.js}"></script>
+		<script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+		<!-- <script th:src="@{/js/autocomplete-productos.js}"></script> -->
+	</body>
+</html>
